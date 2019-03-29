@@ -12,13 +12,15 @@ const image = require('./controllers/image');
 const db = knex({
   client: 'pg',
   connection: {
-    host : 'postgresql-perpendicular-96295',
-    user : 'postgres',
-    password : 'postgres',
-    database : 'smart-brain'
+    host : procces.env.DATABASE_URL,
+    ssl: true
   }
 });
 
+// 'postgresql-perpendicular-96295',
+//     user : 'postgres',
+//     password : 'postgres',
+//     database : 'smart-brain'
 const app = express();
 
 app.use(bodyParser.json());
